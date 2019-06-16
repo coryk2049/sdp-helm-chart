@@ -60,12 +60,13 @@ spec:
         securityContext:
           privileged: true
       volumes:
+        - name: jenkins-home
+          persistentVolumeClaim:
+            claimName: pvc-jenkins
         - name: jenkins-credential-configuration
           secret:
             secretName: jenkins-credential-configuration
             items:
             - key: credential-configuration
               path: configure_credentials.groovy
-       - name: jenkins-home
-          persistentVolumeClaim:
-            claimName: pvc-jenkins
+
