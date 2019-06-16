@@ -55,8 +55,6 @@ spec:
           - name: jenkins-credential-configuration
             mountPath: /var/jenkins_home/init.groovy.d/configure_credentials.groovy
             subPath: configure_credentials.groovy
-          - name: jenkins-home
-            mountPath: /var/jenkins_home
         securityContext:
           privileged: true
       volumes:
@@ -66,6 +64,3 @@ spec:
             items:
             - key: credential-configuration
               path: configure_credentials.groovy
-       - name: jenkins-home
-          persistentVolumeClaim:
-            claimName: pvc-jenkins

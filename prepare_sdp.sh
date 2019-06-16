@@ -8,3 +8,11 @@ oc status
 oc login -u system:admin
 oc adm policy add-cluster-role-to-user cluster-admin admin
 oc logout
+
+#oc new-project onr 
+
+oc create -f ./openshift/pv-data01.yaml 
+#oc create -f ./openshift/pvc-data01.yaml
+oc create -f ./openshift/pvc-jenkins.yaml
+
+oc get pv 

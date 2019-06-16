@@ -1,0 +1,14 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: pv-data01
+spec:
+#  storageClassName: pv-data01
+  capacity:
+    storage: 100Gi
+  accessModes:
+    - ReadWriteOnce
+  awsElasticBlockStore:
+    - fsType: xfs  
+    - volumeID: vol-0ed07a483dc1718ec
+  persistentVolumeReclaimPolicy: Recycle

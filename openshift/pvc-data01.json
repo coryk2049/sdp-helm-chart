@@ -2,7 +2,7 @@
     "apiVersion": "v1",
     "kind": "PersistentVolumeClaim",
     "metadata": {
-        "name": "pvcdata01"
+        "name": "pvc-data01"
     },
     "spec": {
         "accessModes": [ "ReadWriteOnce" ],
