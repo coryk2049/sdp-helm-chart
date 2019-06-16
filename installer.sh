@@ -239,15 +239,21 @@ fi
 
 
 if oc adm policy add-cluster-role-to-user system:image-builder system:serviceaccount:$DEPLOYMENT_NAME:jenkins > /dev/null; then
-
     pass "make jenkins sa image-pusher"
 else
     fail "make jenkins sa image-pusher"
 fi
 
+# jenkins_home
+if oc apply -f <(oc process -f ./openshift/pvc-jenkins.yaml -p PROJECT=$DEPLOYMENT_NAME) -n $DEPLOYMENT_NAME > /dev/null; then
+  pass "PVC for JENKINS_HOME created in $DEPLOYMENT_NAME project"
+else
+  fail "PVC for JENKINS_HOME created in $DEPLOYMENT_NAME project"
+  exit 1
+fi
+
 # install SDP chart
 title "Helm Install"
-
 
 if [ ! "$JENKINS_SUBDOMAIN" = "" ]; then
   HELM_OPTIONS+="--set jenkins.subdomain=$JENKINS_SUBDOMAIN "

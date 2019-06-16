@@ -12,6 +12,6 @@ oc adm policy add-cluster-role-to-user cluster-admin admin
 
 oc create -f ./openshift/pv-data01.yaml 
 #oc create -f ./openshift/pvc-data01.yaml
-oc create -f ./openshift/pvc-jenkins.yaml
+#oc create -f ./openshift/pvc-jenkins.yaml
 
 oc get pv 

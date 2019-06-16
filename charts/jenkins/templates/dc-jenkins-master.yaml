@@ -52,7 +52,7 @@ spec:
             cpu: {{ .Values.resources.master.requests.cpu | quote }}
             memory: {{ .Values.resources.master.requests.memory | quote }}
         volumeMounts:
-          - name: jenkins-master
+          - name: jenkins-home
             mountPath: /var/jenkins_home
           - name: jenkins-credential-configuration
             mountPath: /var/jenkins_home/init.groovy.d/configure_credentials.groovy
@@ -60,18 +60,14 @@ spec:
         securityContext:
           privileged: true
       volumes:
+        - name: jenkins-home
+          persistentVolumeClaim:
+            claimName: jenkins-home
         - name: jenkins-credential-configuration
           secret:
             secretName: jenkins-credential-configuration
             items:
             - key: credential-configuration
               path: configure_credentials.groovy
-  volumeClaimTemplates:
-  - metadata:
-      name: jenkins-master
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      resources:
-        requests:
-          storage: {{ .Values.dockerStorage | default "20Gi" | quote }}
+
 

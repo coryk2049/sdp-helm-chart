@@ -7,28 +7,28 @@ global:
 
 # something
 jenkins:
-    numAgents: 1 # Set this to the desired number of Jenkins Agents/Executors
-    # Configure additional Jenkins variables as necessary
-    subdomain: jenkins
-    masterDockerContextDir: resources/jenkins-master
-    agentDockerContextDir: resources/jenkins-agent
-    resources:
-      master:
-        limits:
-          cpu: "1000m"
-          memory: "4000Mi"
-        requests:
-          cpu: "1000m"
-          memory: "4000Mi"
-      agent:
-        limits:
-          cpu: "1000m"
-          memory: "1500Mi"
-        requests:
-          cpu: "1000m"
-          memory: "1500Mi"
-    dockerStorage: "30Gi"
-    dockerDaemonArgs: "--insecure-registry docker-registry.default.svc:5000"
+  numAgents: 1 # Set this to the desired number of Jenkins Agents/Executors
+  # Configure additional Jenkins variables as necessary
+  subdomain: jenkins
+  masterDockerContextDir: resources/jenkins-master
+  agentDockerContextDir: resources/jenkins-agent
+  resources:
+    master:
+      limits:
+        cpu: "1000m"
+        memory: "4000Mi"
+      requests:
+        cpu: "1000m"
+        memory: "4000Mi"
+    agent:
+      limits:
+        cpu: "1000m"
+        memory: "1500Mi"
+      requests:
+        cpu: "1000m"
+        memory: "1500Mi"
+  dockerStorage: "20Gi"
+  dockerDaemonArgs: "--insecure-registry docker-registry.default.svc:5000"
 
 sonarqube:
   enabled: true

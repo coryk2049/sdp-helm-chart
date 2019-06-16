@@ -1,7 +1,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: pvc-jenkins
+  name: jenkins-home
 spec:
   storageClassName: gp2
 #  storageClassName: pv-jenkins
