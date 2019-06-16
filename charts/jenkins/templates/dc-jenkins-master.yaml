@@ -55,7 +55,7 @@ spec:
           - name: jenkins-credential-configuration
             mountPath: /var/jenkins_home/init.groovy.d/configure_credentials.groovy
             subPath: configure_credentials.groovy
-          - name: jenkins-home
+          - name: docker-storage
             mountPath: /var/jenkins_home
         securityContext:
           privileged: true

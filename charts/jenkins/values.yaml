@@ -30,5 +30,5 @@ resources:
     requests:
       cpu: "1000m"
       memory: "1500Mi"
-dockerStorage: "30Gi"
+dockerStorage: "20Gi"
 dockerDaemonArgs: "--insecure-registry docker-registry.default.svc:5000"
