@@ -68,7 +68,7 @@ spec:
               path: configure_credentials.groovy
   volumeClaimTemplates:
   - metadata:
-      name: jenkins-home
+      name: jenkins-master
     spec:
       accessModes: [ "ReadWriteOnce" ]
       resources:
