@@ -245,7 +245,7 @@ else
 fi
 
 # jenkins_home
-if oc create -f ./openshift/pvc-jenkins.yaml -p PROJECT=$DEPLOYMENT_NAME -n $DEPLOYMENT_NAME > /dev/null; then
+if oc create -f ./openshift/pvc-jenkins.yaml > /dev/null; then
   pass "PVC for JENKINS_HOME created in $DEPLOYMENT_NAME project"
 else
   fail "PVC for JENKINS_HOME created in $DEPLOYMENT_NAME project"
