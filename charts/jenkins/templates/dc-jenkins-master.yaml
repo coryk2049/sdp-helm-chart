@@ -52,7 +52,7 @@ spec:
             cpu: {{ .Values.resources.master.requests.cpu | quote }}
             memory: {{ .Values.resources.master.requests.memory | quote }}
         volumeMounts:
-          - name: jenkins-home
+          - name: jenkins-master
             mountPath: /var/jenkins_home
           - name: jenkins-credential-configuration
             mountPath: /var/jenkins_home/init.groovy.d/configure_credentials.groovy
