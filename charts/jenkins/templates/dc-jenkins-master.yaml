@@ -52,11 +52,11 @@ spec:
             cpu: {{ .Values.resources.master.requests.cpu | quote }}
             memory: {{ .Values.resources.master.requests.memory | quote }}
         volumeMounts:
+          - name: docker-storage
+            mountPath: /var/jenkins_home
           - name: jenkins-credential-configuration
             mountPath: /var/jenkins_home/init.groovy.d/configure_credentials.groovy
             subPath: configure_credentials.groovy
-          - name: docker-storage
-            mountPath: /var/jenkins_home
         securityContext:
           privileged: true
       volumes:
