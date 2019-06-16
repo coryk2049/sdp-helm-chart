@@ -11,7 +11,7 @@ ENV JAVA_HOME /usr/lib/jvm/java
 RUN mkdir -p /opt/jenkins-slave/bin ${HOME} && \
     apk add --no-cache curl openjdk8 git device-mapper openssl-dev build-base nss && \
     # install docker-compose
-    apk add --no-cache py-pip curl supervisor libffi-dev python-dev && \
+    apk add --no-cache py-pip curl supervisor libffi-dev python-dev rsync && \
     pip install docker-compose && \
     # set PID max to 99999
     # bc of docker bug w/ 6 character pid

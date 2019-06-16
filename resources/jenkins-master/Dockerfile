@@ -15,7 +15,9 @@ USER root
 RUN mkdir -p /tmp/oc-client && cd /tmp/oc-client && \
     wget -O oc-client.tar.gz https://github.com/openshift/origin/releases/download/v3.6.1/openshift-origin-client-tools-v3.6.1-008f2d5-linux-64bit.tar.gz && \
     tar -xvf oc-client.tar.gz && \
-    mv */oc /usr/bin/oc
+    mv */oc /usr/bin/oc && \
+    apt-get update && \
+    apt-get install rsync -y 
 
 # install plugins
 COPY resources/plugins/plugins.txt /usr/share/jenkins/ref/plugins.txt
