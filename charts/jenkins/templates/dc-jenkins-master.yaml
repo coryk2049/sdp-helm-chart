@@ -60,13 +60,18 @@ spec:
         securityContext:
           privileged: true
       volumes:
-        - name: jenkins-home
-          persistentVolumeClaim:
-            claimName: pvc-jenkins
         - name: jenkins-credential-configuration
           secret:
             secretName: jenkins-credential-configuration
             items:
             - key: credential-configuration
               path: configure_credentials.groovy
+  volumeClaimTemplates:
+  - metadata:
+      name: docker-storage
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: {{ .Values.dockerStorage | default "20Gi" | quote }}
 
